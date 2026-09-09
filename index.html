@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>SUNO | Gestão de Importações</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div id="loginView" class="login-page">
+    <div class="login-card">
+      <div class="brand-mark">S</div>
+      <div class="login-heading">
+        <span class="eyebrow">SUNO ENERGIA</span>
+        <h1>Gestão de Importações</h1>
+        <p>Acesse para acompanhar processos, embarques, pagamentos e FINIMP.</p>
+      </div>
+
+      <form id="loginForm" class="form-stack" autocomplete="on">
+        <label class="field">
+          <span>Usuário</span>
+          <input id="loginInput" name="login" type="text" autocomplete="username" required autofocus />
+        </label>
+        <label class="field">
+          <span>Senha</span>
+          <div class="password-wrap">
+            <input id="passwordInput" name="password" type="password" autocomplete="current-password" required />
+            <button class="icon-button" id="togglePassword" type="button" aria-label="Mostrar senha">Mostrar</button>
+          </div>
+        </label>
+        <button id="loginButton" class="button button-primary button-block" type="submit">Entrar</button>
+        <p id="loginMessage" class="form-message" role="alert"></p>
+      </form>
+
+      <div id="demoHint" class="demo-hint hidden">
+        <strong>Modo demonstração:</strong> usuário <code>leonardo</code> e senha <code>123456</code>.
+      </div>
+    </div>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark brand-mark-small">S</div>
+        <div>
+          <strong>SUNO</strong>
+          <span>Importações</span>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" data-view="processes"><span>◫</span> Processos</button>
+        <button class="nav-item" data-view="shipments"><span>⇢</span> Embarques</button>
+        <button class="nav-item" data-view="payments"><span>R$</span> Pagamentos</button>
+        <button class="nav-item" data-view="finimp"><span>$</span> FINIMP</button>
+        <div class="nav-separator"></div>
+        <button class="nav-item" data-view="suppliers"><span>◇</span> Fornecedores</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div id="sessionBadge" class="session-badge"></div>
+        <button id="logoutButton" class="button button-ghost button-block" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Abrir menu">☰</button>
+        <div>
+          <p id="pageEyebrow" class="eyebrow">VISÃO GERAL</p>
+          <h2 id="pageTitle">Dashboard</h2>
+        </div>
+        <div class="topbar-actions">
+          <button id="refreshButton" class="button button-secondary" type="button">Atualizar</button>
+          <div id="userChip" class="user-chip"></div>
+        </div>
+      </header>
+
+      <main id="mainContent" class="content"></main>
+    </div>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden" aria-hidden="true">
+    <section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header">
+        <div>
+          <p id="modalEyebrow" class="eyebrow"></p>
+          <h3 id="modalTitle"></h3>
+        </div>
+        <button id="modalClose" class="icon-button" type="button" aria-label="Fechar">Fechar</button>
+      </header>
+      <div id="modalBody" class="modal-body"></div>
+    </section>
+  </div>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+    <div class="spinner"></div>
+    <span>Carregando...</span>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/demo-data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
